@@ -115,7 +115,6 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />
-    <None Include="readme.md" />
     <None Include="StreamAnalysticsSampleData\sjkpazurebootcamp2015-tweethubsimple %281%29.json" />
     <None Include="User.settings">
       <Generator>PublicSettingsSingleFileGenerator</Generator>
