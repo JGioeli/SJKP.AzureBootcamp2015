@@ -131,14 +131,16 @@ namespace SJKP.AzurebootCamp.DataFactoryActivity
                     }
                     count++;
                     var tweet = reader.GetField(0); //get the tweet
-
-                    scores.Add(new TweetSentimentScore()
+                    var entity = new TweetSentimentScore()
                     {
                         PartitionKey = "tweetsentimentscore",
                         RowKey = Guid.NewGuid().ToString(),
                         Tweet = tweet,
                         SentimentScore = GetScore(url, email, apikey, tweet)
-                    });
+                    };
+                    scores.Add(entity);
+
+                    outputAzureTable.Execute(TableOperation.InsertOrReplace(entity)); //Do it one row at a time for demo output
 
                 }
             }
@@ -151,7 +153,7 @@ namespace SJKP.AzurebootCamp.DataFactoryActivity
                 {
                     batchOp.Add(TableOperation.InsertOrReplace(a));
                 });
-                outputAzureTable.ExecuteBatch(batchOp);
+                //outputAzureTable.ExecuteBatch(batchOp); //Removed for demo purposes.
             }
 
 

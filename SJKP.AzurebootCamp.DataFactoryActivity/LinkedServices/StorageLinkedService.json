@@ -1,0 +1,8 @@
+﻿{
+    "name": "StorageLinkedService",
+    "properties": {
+        "connectionString": "DefaultEndpointsProtocol=https;AccountName=sjkpazurebootcamp2015;AccountKey=**********",
+        "hubName": "sjkpazurebootcamp2015_hub",
+        "type": "AzureStorageLinkedService"
+    }
+}

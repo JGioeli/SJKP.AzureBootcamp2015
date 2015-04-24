@@ -1,0 +1,23 @@
+﻿{
+    "name": "HDInsightOnDemandLinkedService",
+    "properties": {
+        "version": "3.1",
+        "clusterSize": 1,
+        "location": null,
+        "timeToLive": "00:15:00",
+        "jobsContainer": "ondemandhdingsigt",
+        "coreConfiguration": {},
+        "hBaseConfiguration": {},
+        "hdfsConfiguration": {},
+        "hiveConfiguration": {},
+        "mapReduceConfiguration": {},
+        "oozieConfiguration": {},
+        "stormConfiguration": {},
+        "yarnConfiguration": {},
+        "additionalLinkedServiceNames": [],
+        "linkedServiceName": "StorageLinkedService",
+        "hcatalog": null,
+        "hubName": "sjkpazurebootcamp2015_hub",
+        "type": "HDInsightOnDemandLinkedService"
+    }
+}

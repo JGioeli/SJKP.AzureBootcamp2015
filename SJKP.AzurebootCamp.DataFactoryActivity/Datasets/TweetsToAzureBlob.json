@@ -1,0 +1,27 @@
+﻿{
+    "name": "TweetsToAzureBlob",
+    "properties": {
+        "structure": [
+            {
+                "position": 0,
+                "name": "Tweet",
+                "type": "String"
+            }
+        ],
+        "published": false,
+        "location": {
+            "type": "AzureBlobLocation",
+            "folderPath": "ouputtweets/tweet",
+            "format": {
+                "type": "TextFormat",
+                "columnDelimiter": ","
+            },
+            "linkedServiceName": "sjkpazurebootcampstorage"
+        },
+        "availability": {
+            "frequency": "Minute",
+            "interval": 15,
+            "waitOnExternal": null
+        }
+    }
+}

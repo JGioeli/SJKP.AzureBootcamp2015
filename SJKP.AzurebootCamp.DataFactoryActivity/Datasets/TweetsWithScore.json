@@ -1,0 +1,16 @@
+﻿{
+    "name": "TweetsWithScore",
+    "properties": {
+        "published": false,
+        "location": {
+            "type": "AzureTableLocation",
+            "tableName": "tweetswithscore",
+            "linkedServiceName": "sjkpazurebootcampstorage"
+        },
+        "availability": {
+            "frequency": "Minute",
+            "interval": 15,
+            "waitOnExternal": null
+        }
+    }
+}

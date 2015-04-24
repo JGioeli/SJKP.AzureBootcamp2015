@@ -113,7 +113,15 @@
   <ItemGroup>
     <None Include="ActivityJson\HttpPostActivity.json" />
     <None Include="app.config" />
+    <None Include="Datasets\TweetsWithScore.json" />
+    <None Include="Datasets\TweetsToAzureBlob.json" />
+    <None Include="Datasets\TweetsFromAzureBlob.json" />
+    <None Include="LinkedServices\StorageLinkedService.json" />
+    <None Include="LinkedServices\sjkpazurebootcampstorage.json" />
+    <None Include="LinkedServices\HDinsightondemandLinkedService.json" />
     <None Include="packages.config" />
+    <None Include="Pipelines\SentimentAnalysis.json" />
+    <None Include="Pipelines\HttpPostActivity.json" />
     <None Include="Pipelines\MoveActivity.json" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

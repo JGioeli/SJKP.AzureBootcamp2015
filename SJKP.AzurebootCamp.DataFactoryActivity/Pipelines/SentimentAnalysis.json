@@ -1,0 +1,44 @@
+﻿{
+    "name": "SentimentAnalysis",
+    "properties": {
+        "description": "Does sentiment analysis on CVS where the first column contains the text data to analyse. Outputs to Azure Table Storage.",
+        "activities": [
+            {
+                "type": "DotNetActivity",
+                "transformation": {
+                    "assemblyName": "SJKP.AzurebootCamp.DataFactoryActivity.dll",
+                    "entryPoint": "SJKP.AzurebootCamp.DataFactoryActivity.SentimentAnalysisActivity",
+                    "packageLinkedService": "StorageLinkedService",
+                    "packageFile": "activities/HttpPostActivity.zip",
+                    "extendedProperties": {
+                        "sliceStart": "$$Text.Format('{0:yyyyMMddHHmm}', Time.AddMinutes(SliceStart, 0))",
+                        "url": "https://api.datamarket.azure.com/data.ashx/aml_labs/lexicon_based_sentiment_analysis/v1/Score",
+                        "apikey": "ZPSUqF6HZ9eAh3St7sENsEM2YfLnsLeIKfj5wUouTNM=",
+                        "email": "blasimtex@hotmail.com"
+                    }
+                },
+                "inputs": [
+                    {
+                        "name": "TweetsToAzureBlob"
+                    }
+                ],
+                "outputs": [
+                    {
+                        "name": "TweetsWithScore"
+                    }
+                ],
+                "policy": {
+                    "timeout": "00:15:00",
+                    "concurrency": 1,
+                    "retry": 3
+                },
+                "name": "HttpPostDotNetActivity",
+                "linkedServiceName": "HDInsightOnDemandLinkedService"
+            }
+        ],
+        "start": "2015-04-24T18:12:24.7240101Z",
+        "end": "2015-04-24T18:42:24.7240101Z",
+        "isPaused": false,
+        "hubName": "sjkpazurebootcamp2015_hub"
+    }
+}
