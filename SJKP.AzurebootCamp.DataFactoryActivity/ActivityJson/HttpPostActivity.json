@@ -1,0 +1,25 @@
+﻿{
+    "Name": "HttpPostDotNetActivity",
+    "Type": "DotNetActivity",
+    "Inputs": [ { "Name": "TweetsFromAzureBlob" } ],
+    "Outputs": [ { "Name": "TweetsToAzureBlob" } ],
+    "LinkedServiceName": "HDInsightOnDemandLinkedService",
+    "Transformation": {
+        "AssemblyName": "SJKP.AzurebootCamp.DataFactoryActivity.dll",
+        "EntryPoint": "SJKP.AzurebootCamp.DataFactoryActivity.HttpPostActivity",
+        "PackageLinkedService": "StorageLinkedService",
+        "PackageFile": "activities/HttpPostActivity.zip",
+        "ExtendedProperties": {
+            "sliceStart": "$$Text.Format('{0:yyyyMMddHH-mm}', Time.AddMinutes(SliceStart, 0))",
+            "requestBinUrl": "http://requestb.in/1lfdyyr1"
+
+        }
+    },
+    "Policy": {
+        "Concurrency": 1,
+        "ExecutionPriorityOrder": "OldestFirst",
+        "Retry": 3,
+        "Timeout": "00:30:00",
+        "Delay": "00:00:00"
+    }
+}
